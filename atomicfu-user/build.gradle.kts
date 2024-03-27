@@ -1,4 +1,5 @@
 import kotlinx.atomicfu.plugin.gradle.AtomicFUPluginExtension
+import kotlinx.atomicfu.transformer.main
 
 repositories {
     mavenCentral()
@@ -14,8 +15,16 @@ kotlin {
     jvm()
     macosArm64()
     js(IR) { nodejs() }
+
+    sourceSets {
+        commonTest {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
+    }
 }
 
 project.extensions.getByType(AtomicFUPluginExtension::class).apply {
-    transformJs = false
+    transformJs = true
 }

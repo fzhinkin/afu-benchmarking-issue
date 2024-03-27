@@ -12,7 +12,5 @@ plugins {
 rootProject.name = "atomicfu-kmp-benchmark"
 
 
-include(":ir-disabled")
+include(":atomicfu-user")
 include(":benchmarks")
-include(":executable")
-include(":ir-enabled")
